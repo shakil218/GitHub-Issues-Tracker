@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- title -->
-    <title>GitHub Issues Tracker</title>
+    <title>GitHub Issues Tracker | Login</title>
 
     <!-- favicon -->
     <link
@@ -43,6 +43,65 @@
     <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
+    <!-- Sign In form -->
+    <div
+      class="min-h-screen flex items-center justify-center bg-linear-to-r from-[#000428] to-[#014d8f] p-4"
+    >
+      <!-- Glass Card -->
+      <div
+        class="w-full max-w-sm bg-white/20 backdrop-blur-xl border border-white/20 shadow-2xl rounded-lg p-6"
+      >
+        <!--  Image + Header + Description -->
+        <div class="flex flex-col items-center text-center mb-6">
+          <img
+            src="./assets/github-logo.png"
+            alt="GitHub Logo"
+            class="w-20 mx-auto mb-3"
+          />
+          <h3 class="text-2xl font-bold text-white">GitHub Issues Tracker</h3>
+          <p class="text-white/80 text-sm">Sign in to manage your issues</p>
+        </div>
+
+        <!-- Form -->
+        <form id="login-form" class="fieldset space-y-4">
+          <!-- username -->
+          <div>
+            <label class="label text-lg font-medium text-white">Username</label>
+            <input
+            id="username"
+              type="text"
+              class="input w-full bg-white/20 text-white placeholder-white/70"
+              placeholder="Enter Username"
+            />
+          </div>
+
+          <!-- password -->
+          <div>
+            <label class="label text-lg font-medium text-white">Password</label>
+            <input
+            id="password"
+              type="password"
+              class="input w-full bg-white/20 text-white placeholder-white/70"
+              placeholder="Enter Password"
+            />
+          </div>
+
+          <!-- sign in button -->
+          <button type="submit" class="btn btn-neutral w-full">Sign In</button>
+
+          <!-- Divider (white) -->
+          <div class="divider text-white mt-4 before:bg-white after:bg-white">OR</div>
+
+          <!-- Demo Credentials -->
+          <div class="text-white text-sm text-center space-y-1">
+            <p><small>Demo Credentials:</small></p>
+            <p><span class="font-semibold">Username:</span> admin</p>
+            <p><span class="font-semibold">Password:</span> admin123</p>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <!-- authentication js file -->
     <script src="js/auth.js"></script>
   </body>
