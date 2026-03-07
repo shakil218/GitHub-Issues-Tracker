@@ -1,5 +1,5 @@
-// Get and display all issues data
-const getAllIssues = async () => {
+// Get and display all issues card data
+const getAllIssuesCard = async (searchText = "") => {
   // get each element by id
   const totalIssuesCount = document.getElementById("total-issues");
   const container = document.getElementById("issues-container");
@@ -10,10 +10,14 @@ const getAllIssues = async () => {
     spinner.classList.remove("hidden");
     spinner.classList.add("spinner");
 
+    // Decide API URL
+    const url = searchText
+      ? `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`
+      : `https://phi-lab-server.vercel.app/api/v1/lab/issues`;
+
     // Fetch data
-    const response = await fetch(
-      "https://phi-lab-server.vercel.app/api/v1/lab/issues",
-    );
+    const response = await fetch(url);
+
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     const data = await response.json();
     const allIssuesCards = data.data;
@@ -38,7 +42,8 @@ const getAllIssues = async () => {
         "max-w-md bg-white/10 backdrop-blur-lg rounded-xl shadow-lg overflow-hidden border border-white/20";
 
       // convert date to toLocalDateString()
-      const localDate = new Date(issueCard.updatedAt).toLocaleDateString();
+      const createdDate = new Date(issueCard.createdAt).toLocaleDateString();
+      const updatedDate = new Date(issueCard.updatedAt).toLocaleDateString();
 
       // set issueCard innerHTML
       card.innerHTML = `
@@ -112,9 +117,15 @@ const getAllIssues = async () => {
               <div class="border-t border-white/20"></div>
 
               <!-- Footer -->
-              <div class="p-6 text-white/70 space-y-1">
-                <p>#<span>${issueCard.id}</span> by <span>${issueCard.author}</span></p>
-                <p>${localDate}</p>
+              <div class="flex justify-between items-center gap-4 p-6 text-white/70 text-sm">
+                <div class="space-y-1">
+                  <p>#<span> ${issueCard.id}</span> by <span>${issueCard.author}</span></p>
+                  <p>Assignee: ${issueCard.assignee ? issueCard.assignee : "Unassigned"}</p>
+                </div>
+                <div class="space-y-1">
+                  <p>${createdDate}</p>
+                  <p>Updated: ${updatedDate}</p>
+                </div>
               </div>
       `;
 
@@ -255,20 +266,29 @@ const displayIssueModal = (issueCard) => {
                 <div
                   class="px-6 py-5 flex md:max-w-md justify-between gap-4 bg-gray-50 dark:bg-gray-700"
                 >
-                  <div>
+                  <div class="space-y-2">
                     <p class="text-gray-500 dark:text-gray-400 text-sm">
                       Assignee:
                     </p>
                     <p class="font-semibold text-gray-800 dark:text-white">
-                      ${issueCard.author}
+                      ${issueCard.assignee ? issueCard.assignee : "Unassigned"}
                     </p>
                   </div>
-                  <div>
+                  <div class="space-y-2">
                     <p class="text-gray-500 dark:text-gray-400 text-sm">
                       Priority:
                     </p>
                     <span
-                      class="inline-block px-4 py-1 bg-red-500 text-white rounded-full text-sm"
+                      class="inline-block rounded-full text-sm
+                      ${
+                        issueCard.priority.toLowerCase() === "high"
+                          ? "bg-red-200 text-red-400 border-red-400/40 badge"
+                          : issueCard.priority.toLowerCase() === "medium"
+                            ? "bg-yellow-100 text-yellow-600 border-yellow-400/40 badge"
+                            : issueCard.priority.toLowerCase() === "low"
+                              ? "bg-gray-300 text-white border-gray-400/40 badge"
+                              : ""
+                      }"
                     >
                       ${issueCard.priority}
                     </span>
@@ -291,5 +311,14 @@ const displayIssueModal = (issueCard) => {
   } catch {}
 };
 
+// 2️⃣ Search input
+const searchInput = document.getElementById("search-input");
+
+searchInput.addEventListener("input", () => {
+  const searchText = searchInput.value.trim();
+
+  getAllIssuesCard(searchText);
+});
+
 // Directly call the function
-getAllIssues();
+getAllIssuesCard();
