@@ -43,7 +43,6 @@
     <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body class="bg-linear-to-r from-[#000428] to-[#014d8f] min-h-screen">
-    
     <!-- header -->
     <header class="sticky top-0 z-50">
       <!-- Navbar -->
@@ -99,7 +98,7 @@
           <!-- New Issue Button -->
           <button
             id="new-issue-btn"
-            class="btn px-3 md:px-4 py-2 rounded-lg bg-gradient-to-r from-[#000428] to-[#014d8f] border border-white/20 hover:opacity-90 text-white text-sm md:text-base font-semibold transition duration-300 whitespace-nowrap"
+            class="btn px-3 md:px-4 py-2 rounded-lg bg-linear-to-r from-[#000428] to-[#014d8f] border border-white/20 hover:opacity-90 text-white text-sm md:text-base font-semibold transition duration-300 whitespace-nowrap"
           >
             + New Issue
           </button>
@@ -108,13 +107,91 @@
     </header>
 
     <!-- Main Dashboard Content -->
-    <main class="p-6 text-white">
+    <main
+      class="max-w-7xl mx-auto border border-amber-400 my-16 p-6 text-white space-y-3"
+    >
       <h2 class="text-2xl font-bold mb-4">Issues Dashboard</h2>
 
-      <!-- Issues Container -->
-      <div id="issues-container" class="grid gap-4">
-        <!-- Issue cards will appear here -->
+      <!-- tabs container -->
+      <div
+        role="tablist"
+        class="tabs tabs-box gap-3 p-5 bg-white/20 backdrop-blur-xl border border-white/20 shadow-2xl"
+      >
+        <a
+          role="tab"
+          class="tab text-white backdrop-blur-xl border border-white/20 shadow-2xl tab-active"
+          >All</a
+        >
+        <a
+          role="tab"
+          class="tab text-white backdrop-blur-xl border border-white/20 shadow-2xl"
+          >Open</a
+        >
+        <a
+          role="tab"
+          class="tab text-white backdrop-blur-xl border border-white/20 shadow-2xl"
+          >Closed</a
+        >
       </div>
+
+      <!-- Issues Section -->
+      <section>
+        <!-- Issues Section Content -->
+        <div
+          class="max-w-7xl mx-auto p-4 sm:p-5 bg-white/20 backdrop-blur-xl border border-white/20 shadow-2xl rounded-lg"
+        >
+          <!-- Top Content -->
+          <div
+            class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4"
+          >
+            <!-- Left Content -->
+            <div class="flex items-center gap-3 sm:gap-4">
+              <!-- Icon Circle -->
+              <div
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-purple-200/75 flex-shrink-0"
+              >
+                <img src="./assets/Aperture.png" alt="" class="w-5 h-5" />
+              </div>
+
+              <!-- Text -->
+              <div>
+                <h3 class="text-white font-semibold text-base sm:text-lg">
+                  50 Issues
+                </h3>
+                <p class="text-white/70 text-xs sm:text-sm">
+                  Track and manage your project issues
+                </p>
+              </div>
+            </div>
+
+            <!-- Right Status -->
+            <div
+              class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm text-white"
+            >
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 bg-green-400 rounded-full"></span>
+                Open
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 bg-purple-400 rounded-full"></span>
+                Closed
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="border-t border-white/30 mb-4"></div>
+
+          <!-- Issues Container -->
+          <div
+            id="issues-container"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          >
+            <!-- Issue cards will appear here -->
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Dashboard JS -->

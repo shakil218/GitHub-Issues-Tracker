@@ -1,3 +1,17 @@
-*{
+* {
   font-family: "Geist", sans-serif;
 }
+
+/* active tab styles */
+.tab-active {
+  padding: 8px 12px;
+  border-radius: 8px;
+
+  background: linear-gradient(to right, #000428, #014d8f);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  color: white;
+  
+}
+
