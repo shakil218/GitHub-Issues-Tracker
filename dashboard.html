@@ -107,15 +107,12 @@
     </header>
 
     <!-- Main Dashboard Content -->
-    <main
-      class="max-w-7xl mx-auto border border-amber-400 my-16 p-6 text-white space-y-3"
-    >
-      <h2 class="text-2xl font-bold mb-4">Issues Dashboard</h2>
+    <main class="max-w-7xl mx-auto p-6 text-white space-y-3">
 
       <!-- tabs container -->
       <div
         role="tablist"
-        class="tabs tabs-box gap-3 p-5 bg-white/20 backdrop-blur-xl border border-white/20 shadow-2xl"
+        class="tabs tabs-box gap-3 mt-10 p-5 bg-white/20 backdrop-blur-xl border border-white/20 shadow-2xl"
       >
         <a
           role="tab"
@@ -183,12 +180,84 @@
           <!-- Divider -->
           <div class="border-t border-white/30 mb-4"></div>
 
-          <!-- Issues Container -->
+          <!-- Issues Card Container -->
           <div
             id="issues-container"
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            <!-- Issue cards will appear here -->
+
+          <!-- Issues Card -->
+            <div
+              class="max-w-md bg-white/10 backdrop-blur-lg rounded-xl shadow-lg overflow-hidden border border-white/20"
+            >
+              <!-- Top Purple Border -->
+              <div class="h-1 bg-purple-500"></div>
+
+              <div class="p-6">
+                <!-- Top Row -->
+                <div class="flex items-center justify-between mb-4">
+                  <!-- Icon -->
+                  <div
+                    class="w-12 h-12 flex items-center justify-center rounded-full bg-purple-400/40"
+                  >
+                    <!-- <i
+                       class="fa-solid fa-circle-check text-purple-300 text-lg"
+                     ></i> -->
+                    <img
+                      src="./assets/Closed- Status .png"
+                      alt="Closed"
+                      class="text-purple-300 text-lg"
+                    />
+                  </div>
+
+                  <!-- Priority Badge -->
+                  <span
+                    class="px-6 py-2 bg-white/20 text-white/80 rounded-full text-sm font-semibold"
+                  >
+                    LOW
+                  </span>
+                </div>
+
+                <!-- Title -->
+                <h2 class="text-xl font-semibold text-white mb-3 leading-snug">
+                  Fix Navigation Menu On Mobile Devices
+                </h2>
+
+                <!-- Description -->
+                <p class="text-white/70 mb-5">
+                  The navigation menu doesn't collapse properly on mobile
+                  devices...
+                </p>
+
+                <!-- Labels -->
+                <div class="flex flex-wrap gap-3 mb-5">
+                  <!-- Bug Label -->
+                  <span
+                    class="flex items-center gap-2 px-4 py-2 bg-red-200 text-red-400 border border-red-400/40 rounded-full text-sm font-semibold"
+                  >
+                    <i class="fa-solid fa-bug"></i>
+                    BUG
+                  </span>
+
+                  <!-- Help Wanted Label -->
+                  <span
+                    class="flex items-center gap-2 px-4 py-2 bg-yellow-100 text-yellow-600 border border-yellow-400/40 rounded-full text-sm font-semibold"
+                  >
+                    <i class="fa-regular fa-life-ring"></i>
+                    HELP WANTED
+                  </span>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <div class="border-t border-white/20"></div>
+
+              <!-- Footer -->
+              <div class="p-6 text-white/70 space-y-1">
+                <p>#1 by john_doe</p>
+                <p>1/15/2024</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
