@@ -114,16 +114,19 @@
         class="tabs tabs-box gap-3 mt-10 p-5 bg-white/20 backdrop-blur-xl border border-white/20 shadow-2xl"
       >
         <a
+          id="tab-allBtn"
           role="tab"
           class="tab text-white backdrop-blur-xl border border-white/20 shadow-2xl tab-active"
           >All</a
         >
         <a
+          id="tab-openBtn"
           role="tab"
           class="tab text-white backdrop-blur-xl border border-white/20 shadow-2xl"
           >Open</a
         >
         <a
+          id="tab-closedBtn"
           role="tab"
           class="tab text-white backdrop-blur-xl border border-white/20 shadow-2xl"
           >Closed</a
@@ -188,10 +191,7 @@
           </div>
 
           <!-- Loading Spinner -->
-          <div
-            id="loading-spinner"
-            class="hidden"
-          >
+          <div id="loading-spinner" class="hidden">
             <svg
               class="animate-spin h-8 w-8 text-purple-500"
               xmlns="http://www.w3.org/2000/svg"
@@ -215,9 +215,7 @@
           </div>
 
           <!-- Open the modal using ID.showModal() method -->
-          <dialog id="my_modal_5" class="modal modal-middle">
-            
-          </dialog>
+          <dialog id="my_modal_5" class="modal modal-middle"></dialog>
         </div>
       </section>
     </main>
