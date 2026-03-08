@@ -45,14 +45,16 @@ const getAllIssuesCard = async (status = "all", searchText = "") => {
     // Render issues
     filteredIssuesCards.forEach((issueCard) => {
       const card = document.createElement("div");
-      card.className =
-        "max-w-md bg-white/10 backdrop-blur-lg rounded-xl shadow-lg overflow-hidden border border-white/20";
+      card.className = `group max-w-md bg-white/20 backdrop-blur-xl rounded-xl border border-white/20
+                  shadow-lg transition-all duration-300
+                  hover:scale-105 hover:-translate-y-2
+                  hover:shadow-[0_20px_50px_rgba(168,85,247,0.35)]`;
 
       const createdDate = new Date(issueCard.createdAt).toLocaleDateString();
       const updatedDate = new Date(issueCard.updatedAt).toLocaleDateString();
 
       card.innerHTML = `
-        <div class="h-1 ${
+        <div class="h-2 rounded-t-xl ${
           issueCard.status.toLowerCase() === "open"
             ? "bg-green-500"
             : "bg-purple-500"
@@ -60,11 +62,12 @@ const getAllIssuesCard = async (status = "all", searchText = "") => {
 
         <div class="p-6">
           <div class="flex items-center justify-between mb-4">
-            <div class="w-12 h-12 flex items-center justify-center rounded-full ${
-              issueCard.status.toLowerCase() === "open"
-                ? "bg-green-400/20"
-                : "bg-purple-400/40"
-            }">
+            <div class="w-12 h-12 flex items-center justify-center rounded-full 
+                        transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110 ${
+                          issueCard.status.toLowerCase() === "open"
+                            ? "bg-green-400/20"
+                            : "bg-purple-400/40"
+                        }">
               ${
                 issueCard.status.toLowerCase() === "open"
                   ? `<img src="./assets/Open-Status.png" alt="Opened"/>`
@@ -276,6 +279,9 @@ tabClosed.addEventListener("click", () => {
   setActiveTab(tabClosed);
   getAllIssuesCard(currentStatus, currentSearchText);
 });
+
+// ***dynamic footer year***
+document.getElementById("year").textContent = new Date().getFullYear();
 
 // ***Initial load***
 getAllIssuesCard(currentStatus, currentSearchText);
