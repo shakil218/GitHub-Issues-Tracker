@@ -1,16 +1,41 @@
-# JavaScript ES6 Concepts
-This README.md file explains important JavaScript ES6 concepts in my own words with clear explanations.
-### 1. What is the difference between var, let, and const?
-**var** – Function-scoped, can be redeclared and updated. Hoisted.<br>
-**let** – Block-scoped, can be updated but not redeclared in the same scope.<br>
-**const** – Block-scoped, cannot be updated or redeclared. Must be initialized.<br>
-### 2. What is the spread operator (...)?
-**Spread Operator (...)** – Expands an array, object, or iterable into individual elements. Useful for copying, merging, or passing multiple values.
-### 3. What is the difference between map(), filter(), and forEach()?
-**map()** = transforms each element and returns a new array<br>
-**filter()** = keeps elements that are matched the condition and returns a new array<br>
-**forEach()** = runs code for each element but returns nothing
-### 4. What is an arrow function?
-**Arrow Function** – A shorter syntax for functions that also inherits **this** from its surrounding scope.
-### 5. What are template literals?
-**Template Literals** – Strings wrapped in backticks **(`\)** that allow variable interpolation and multiline text.
+# GitHub Issues Tracker
+
+<p align="center">
+  <img src="https://github.com/shakil218/GitHub-Issues-Tracker/blob/main/Screenshot%202026-03-19%20225153.png?raw=true" alt="GitHub Issues Tracker Screenshot" />
+</p>
+
+## 🌐 Live Demo
+[Click here to view the live project](https://github-issue-tracker-hub.netlify.app/)  <!-- Replace # with your deployed/live link -->
+
+## 🔗 GitHub Repository
+[Click here to view the GitHub repo](https://github.com/shakil218/GitHub-Issues-Tracker)
+
+---
+
+## 📝 Overview
+**GitHub Issues Tracker** is a web-based issue tracking application inspired by GitHub’s own interface.  
+It allows users to create, view, and manage issues in a clean and intuitive UI.
+
+---
+
+## 🛠 Tech Stack
+- 🟨 **JavaScript** — Core application logic  
+- 📝 **HTML5** — Markup  
+- 🎨 **CSS3** — Styling and layout  
+
+---
+
+## ⚙️ Features
+- ➕ Add new issues  
+- 🖊️ Edit existing issues  
+- ❌ Delete resolved or unwanted issues  
+- 🔎 Easy and lightweight interface  
+- 📱 Responsive layout
+
+---
+
+## 💻 Getting Started
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/shakil218/GitHub-Issues-Tracker.git
